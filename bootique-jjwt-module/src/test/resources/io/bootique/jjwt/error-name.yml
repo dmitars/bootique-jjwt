@@ -1,0 +1,10 @@
+jjwt:
+  parser:
+    requireIssuer: 'https://example.org'
+    keyStore: ks4
+    keyAlias: mykey
+keystore:
+  ks1:
+    location: "classpath:io/bootique/jjwt/ks/ks1.jks"
+    password: "passOfKs1"
+    type: pkcs12

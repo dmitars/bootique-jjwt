@@ -1,6 +1,0 @@
-io/bootique/jwt/TempCommand.class
-io/bootique/jwt/models/Parser.class
-io/bootique/jwt/JjwtObjectFactory.class
-io/bootique/jwt/JjwtModuleProvider.class
-io/bootique/jwt/JjwtModule.class
-io/bootique/jwt/Main.class

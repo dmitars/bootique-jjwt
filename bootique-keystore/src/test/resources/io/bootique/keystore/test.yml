@@ -1,0 +1,10 @@
+keystore:
+  ks1:
+    location: "classpath:io/bootique/keystore/ks/ks1.jks"
+    password: "passOfKs1"
+  ks2:
+    location: "classpath:io/bootique/keystore/ks/ks2.jks"
+    password: "passOfKs2"
+  ks3:
+    location: "classpath:io/bootique/keystore/ks/ks3.jks"
+    password: "passOfKs3"

@@ -1,0 +1,15 @@
+jjwt:
+  parser:
+    requireIssuer: 'https://example.org'
+    id: my-id
+    subject: my-subject
+    audience: my-audience
+    allowedClockSkewSeconds: 12
+    keyStore: ks1
+    keyAlias: mykey
+    expiration: 2004-12-31
+keystore:
+  ks1:
+    location: "classpath:io/bootique/jjwt/ks/ks1.jks"
+    password: "passOfKs1"
+    type: pkcs12
