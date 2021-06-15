@@ -1,9 +1,0 @@
-jjwt:
-  parser:
-    requireIssuer: 'https://example.org'
-    keyStore: ks1
-    keyAlias: mykey
-  keystores:
-    ks1:
-      location: "classpath:abc.jks"
-      password: "changeit"

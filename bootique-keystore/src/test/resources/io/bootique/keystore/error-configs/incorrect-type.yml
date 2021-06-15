@@ -1,0 +1,6 @@
+keystore:
+  keystores:
+    ks1:
+      location: "classpath:io/bootique/keystore/ks1.jks"
+      password: "passOfKs1"
+      type: JKW

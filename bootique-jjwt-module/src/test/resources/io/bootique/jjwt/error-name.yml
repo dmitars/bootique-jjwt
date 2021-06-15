@@ -1,0 +1,18 @@
+jjwt:
+  parser:
+    requireIssuer: 'https://example.org'
+    keyStore: ks4
+    keyAlias: mykey
+keystore:
+  keystores:
+    ks1:
+      location: "classpath:ks1.jks"
+      password: "passOfKs1"
+      type: pkcs12
+    ks2:
+      location: "classpath:ks2.jks"
+      password: "passOfKs2"
+      type: pkcs12
+    ks3:
+      location: "classpath:ks3.jks"
+      password: "passOfKs3"

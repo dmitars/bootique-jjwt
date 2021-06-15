@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="bootique-jjwt" />
+        <module name="bootique-jjwt-module" />
+        <module name="bootique-keystore" />
       </profile>
     </annotationProcessing>
   </component>

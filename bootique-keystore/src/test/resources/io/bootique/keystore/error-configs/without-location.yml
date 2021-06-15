@@ -1,0 +1,4 @@
+keystore:
+  keystores:
+    ks1:
+      password: "passOfKs1"
