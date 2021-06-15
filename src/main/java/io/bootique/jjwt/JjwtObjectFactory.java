@@ -21,19 +21,19 @@ package io.bootique.jjwt;
 
 import io.bootique.annotation.BQConfig;
 import io.bootique.annotation.BQConfigProperty;
+import io.bootique.di.Provides;
+import io.bootique.jjwt.keystore.KeyStoreLoader;
 import io.bootique.jjwt.model.KeyStoreMetadata;
 import io.bootique.jjwt.model.Parser;
 import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
-import java.util.*;
+import java.util.Map;
+import java.util.Objects;
 
 @BQConfig
 public class JjwtObjectFactory {
@@ -56,27 +56,15 @@ public class JjwtObjectFactory {
         this.keystores = keystores;
     }
 
+    @Provides
     public Map<String, KeyStoreMetadata> getKeystores() {
         return keystores;
     }
 
-    public JwtBuilder createJwtParser() throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException {
+    public JwtBuilder createJwtBuilder() throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException {
         Objects.requireNonNull(parser);
-        KeyStore ks = KeyStore.getInstance("JKS");
 
-        if (!keystores.containsKey(parser.getKeyStore()))
-            throw new RuntimeException("keystore with name [" + parser.getKeyStore() + "] not found!");
-
-        KeyStoreMetadata keyStoreMetadata = getKeystores().get(parser.getKeyStore());
-
-        char[] password = keyStoreMetadata.getPassword().toCharArray();
-
-        ks.load(new FileInputStream(keyStoreMetadata.getLocation()), password);
-        if (!ks.containsAlias(parser.getKeyAlias()))
-            throw new RuntimeException("key alias [" + parser.getKeyAlias() + "] not found in provided keystore");
-
-        return Jwts.builder()
-                .setIssuer(parser.getRequireIssuer())
-                .signWith(ks.getKey(parser.getKeyAlias(), password));
+        KeyStoreLoader loader = new KeyStoreLoader(parser);
+        return loader.createJwtBuilder();
     }
 }
