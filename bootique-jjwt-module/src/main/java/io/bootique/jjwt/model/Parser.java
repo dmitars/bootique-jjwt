@@ -35,42 +35,82 @@ public class Parser {
     private String id;
     private long allowedClockSkewSeconds;
 
-    @BQConfigProperty
+    /**
+     * Sets an requireIssuer property for the Parser object, which will be transferred to JwtParser.
+     *
+     * @param requireIssuer a requireIssuer property of JwtParser.
+     */
+    @BQConfigProperty("requireIssuer property of JwtParser")
     public void setRequireIssuer(String requireIssuer) {
         this.requireIssuer = requireIssuer;
     }
 
-    @BQConfigProperty
+    /**
+     * Sets keystore name from configs for the Parser object, which will be transferred to JwtParser.
+     *
+     * @param keyStore a name of keystore in configs, which JwtParser should use.
+     */
+    @BQConfigProperty("keystore name from configuration file")
     public void setKeyStore(String keyStore) {
         this.keyStore = keyStore;
     }
 
-    @BQConfigProperty
+    /**
+     * Sets an alias of key in keystore, which JwtParser should use.
+     *
+     * @param keyAlias an alias of key for JwtParser.
+     */
+    @BQConfigProperty("alias of key in keystore")
     public void setKeyAlias(String keyAlias) {
         this.keyAlias = keyAlias;
     }
 
-    @BQConfigProperty
+    /**
+     * Sets an requireSubject property for the Parser object, which will be transferred to JwtParser.
+     *
+     * @param subject requireSubject property of JwtParser.
+     */
+    @BQConfigProperty("requireSubject property of JwtParser")
     public void setSubject(String subject) {
         this.subject = subject;
     }
 
-    @BQConfigProperty
+    /**
+     * Sets an requireAudience property for the Parser object, which will be transferred to JwtParser.
+     *
+     * @param audience requireAudience property of JwtParser.
+     */
+    @BQConfigProperty("requireExpiration property of JwtParser")
     public void setAudience(String audience) {
         this.audience = audience;
     }
 
-    @BQConfigProperty
+    /**
+     * Sets an requireExpiration property for the Parser object, which will be transferred to JwtParser.
+     *
+     * @param expiration requireExpiration property of JwtParser.
+     */
+    @BQConfigProperty("requireExpiration property of JwtParser")
     public void setExpiration(Date expiration) {
         this.expiration = expiration;
     }
 
-    @BQConfigProperty
+    /**
+     * Sets an requireId property for the Parser object, which will be transferred to JwtParser.
+     *
+     * @param id requireId property of JwtParser.
+     */
+    @BQConfigProperty("requireId property of JwtParser")
     public void setId(String id) {
         this.id = id;
     }
 
-    @BQConfigProperty
+    /**
+     * Sets an allowedClockSkewSeconds property for the Parser object, which will be transferred to JwtParser.
+     *
+     * @param allowedClockSkewSeconds allowedClockSkewSeconds property of JwtParser.
+     */
+    @BQConfigProperty("allowedClockSkewSeconds property of JwtParser. 0 by default")
     public void setAllowedClockSkewSeconds(long allowedClockSkewSeconds) {
         this.allowedClockSkewSeconds = allowedClockSkewSeconds;
     }

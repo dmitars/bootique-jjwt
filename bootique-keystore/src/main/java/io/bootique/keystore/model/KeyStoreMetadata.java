@@ -39,7 +39,10 @@ public class KeyStoreMetadata {
     private String type;
     private String provider;
 
-    @BQConfigProperty
+    /**
+     * @param location path to keystore file.
+     */
+    @BQConfigProperty("Path to keystore file")
     public void setLocation(ResourceFactory location) {
         this.location = location;
     }
@@ -48,7 +51,10 @@ public class KeyStoreMetadata {
         return password;
     }
 
-    @BQConfigProperty
+    /**
+     * @param password password of keystore.
+     */
+    @BQConfigProperty("Password of keystore file")
     public void setPassword(String password) {
         this.password = password;
     }
@@ -57,7 +63,12 @@ public class KeyStoreMetadata {
         return type;
     }
 
-    @BQConfigProperty
+    /**
+     * Sets keystore type (JKS, PKCS12 and another)
+     *
+     * @param type type of Keystore.
+     */
+    @BQConfigProperty("Keystore type (JKS/PKCS12/..)")
     public void setType(String type) {
         this.type = type;
     }
@@ -66,7 +77,10 @@ public class KeyStoreMetadata {
         return provider;
     }
 
-    @BQConfigProperty
+    /**
+     * @param provider provider of keystore.
+     */
+    @BQConfigProperty("Provider of keystore (like BC for PKCS12)")
     public void setProvider(String provider) {
         this.provider = provider;
     }
@@ -82,6 +96,9 @@ public class KeyStoreMetadata {
         }
     }
 
+    /**
+     * Provides object, which contains Keystore and its password
+     */
     public ExtendedKeystore toLoadedExtendedKeyStore() {
         Objects.requireNonNull(password, "Cannot find password; add password property to keystore in configs");
         KeyStore keyStore = toKeyStore();
