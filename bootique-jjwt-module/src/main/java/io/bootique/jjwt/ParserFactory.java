@@ -130,7 +130,7 @@ public class ParserFactory {
 
     private ExtendedKeystore extendedKeystoreOf(Map<String, ExtendedKeystore> keyStores) {
         if (!keyStores.containsKey(keyStore))
-            throw new RuntimeException("keystore with name [" + keyStores + "] not found!");
+            throw new RuntimeException("keystore with name [" + keyStore + "] not found!");
 
         return keyStores.get(keyStore);
     }
